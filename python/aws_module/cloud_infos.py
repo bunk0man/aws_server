@@ -4,10 +4,11 @@ import yaml
 
 class AwsHandler(object):
     def __init__(self):
-        pass
+        self.ec2 = boto3.resource('ec2')
+        self.obj_instance = self.ec2.Instance('id')
 
-    def list_instances(self):
-        pass
+    def current_state(self):
+        print("Current instance state: ", self.obj_instance.state)
 
     def create_instances(self):
         pass
